@@ -4,10 +4,11 @@
 
  ======================================================*/
 
+$navbar-height: 2 * height-calc($med);
 
 .navbar {
   width: 100%;
-  min-height: 60px;
+ // min-height: 2 * height-calc($med);
   display: block;
   margin-bottom: 20px;
   background: $navbar-color; // Change this color in settings to change the navbar color
@@ -53,12 +54,12 @@
     display: inline-block;
     margin: 0 $gutter 0 0;
     padding: 0;
-    @include line-and-height(height-calc($larger - 3));
+    @include line-and-height($navbar-height);
     a {
       display: block;
       padding: 0 0 0 $norm;
       overflow: hidden;
-      @include line-and-height(height-calc($larger - 3));
+      @include line-and-height($navbar-height);
     }
 
     // Navbar Logo Mobile Styles
@@ -76,11 +77,29 @@
     }
   }
 
+  form {
+      margin-bottom: 0;
+      padding-bottom: 0;
+  }
+
+  .login {
+
+  }
+
+  .login .field {
+     color: $navbar-link-color;
+    @include font-size($norm);
+    text-shadow: 0 1px 2px darken($navbar-color, 20%),
+                     0 1px 0 darken($navbar-color, 20%);
+    @include line-and-height($navbar-height);
+  }
+
   ul {
-    display: table;
+    //display: table;
+    position: relative;
     vertical-align: middle;
     margin: 0;
-    float: none;
+   // height: height-calc($med);
 
     // Navbar Navigation List Mobile Specific Styles
     @include respond(all-phones) {
@@ -103,12 +122,15 @@
       }
     }
 
+
+
     li {
       display: table-cell;
+      //float: left;
       text-align: center;
       padding-bottom: 0;
       margin: 0;
-      @include line-and-height(height-calc($larger - 3));
+      @include line-and-height($navbar-height);
 
       // Navbar List Item Mobile Specific Styles
       @include respond(all-phones) {
@@ -130,7 +152,7 @@
         color: $navbar-link-color;
         text-shadow: 0 1px 2px darken($navbar-color, 20%),
                      0 1px 0 darken($navbar-color, 20%);
-        @include line-and-height(height-calc($larger - 3));
+        @include line-and-height($navbar-height);
         @include font-size($norm);
       }
       .btn {

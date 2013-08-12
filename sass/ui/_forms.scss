@@ -27,7 +27,8 @@ form {
     list-style-type: none;
   }
   fieldset {
-    @include rhythm-borders(1px,1,$norm,solid);
+    @include rhythm-borders(1px,0.5,$norm,solid);
+    padding-top: rhythm(0.25, $norm, 0);
     border-color: darken($default-color, 10%);
     margin: 18px 0;
     legend {
@@ -62,6 +63,12 @@ form {
   }
   .radio, .checkbox {
     position: relative;
+  }
+  input[type="radio"] {
+    -webkit-appearance: radio;
+  }
+  input[type="checkbox"] {
+    -webkit-appearance: checkbox;
   }
   .radio input[type="radio"], .checkbox input[type="checkbox"] {
     display: none;

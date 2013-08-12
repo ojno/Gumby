@@ -272,3 +272,68 @@ abbr {
     page-break-after: avoid;
   }
 }
+
+._xsmall {
+  @include line-and-height(height-calc($xsmall), true);
+  @include font-size($xsmall, true);
+}
+
+
+._small {
+  @include line-and-height(height-calc($small), true);
+  @include font-size($small, true);
+}
+
+
+._norm {
+  @include line-and-height(height-calc($norm), true);
+  @include font-size($norm, true);
+}
+
+
+._med {
+  @include line-and-height(height-calc($med), true);
+  @include font-size($med, true);
+}
+
+
+._large {
+  @include line-and-height(height-calc($large), true);
+  @include font-size($large, true);
+}
+
+
+._xlarge {
+  @include line-and-height(height-calc($xlarge), true);
+  @include font-size($xlarge, true);
+}
+
+
+._xxlarge {
+  @include line-and-height(height-calc($xxlarge), true);
+  @include font-size($xxlarge, true);
+}
+
+
+._xxxlarge {
+  @include line-and-height(height-calc($xxxlarge), true);
+  @include font-size($xxxlarge, true);
+}
+
+
+._reallybig {
+  @include line-and-height(height-calc($reallybig), true);
+  @include font-size($reallybig, true);
+}
+
+
+._tremendous {
+  @include line-and-height(height-calc($tremendous), true);
+  @include font-size($tremendous, true);
+}
+
+
+._absurd {
+  @include line-and-height(height-calc($absurd), true);
+  @include font-size($absurd, true);
+}

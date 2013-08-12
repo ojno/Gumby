@@ -50,86 +50,48 @@
   float: $switch-float;
 }
 
-// Generate the Grid
-
-/* Column Classes */
-
-// Generate Column Classes
-.row {
-  @for $i from 1 through $cols{
-    @if $i == 1 {
-      .one.column {
-        width: columns($i);
-      }
-    }
-    .#{number-as-word($i)}.columns {
-      width: columns($i);
-    }
-  }
-}
-
-/* Push Classes */
-
-// Generate Push Classes
-.row {
-  @for $i from 1 through $cols - 1 {
-    .push_#{number-as-word($i)} {
-      margin-left: push_x($i);
-        &:first-child {
-        margin-left: push_x($i, true);
-      }
-    }
-  }
-}
-
-/* Centered Classes */
-
-// Generate Centered Classes
-.row {
-  @for $i from 1 through $cols - 1 {
-    .#{number-as-word($i)}.centered {
-      margin-left: centered($i);
-    }
-  }
-}
-
 /* Hybrid Grid Columns */
 
-// Generate Hybrid Grid Column Classes
-.#{number-as-word($hybrid)}.colgrid .row {
-  @for $i from 1 through $hybrid{
-    @if $i == 1 {
-      .one.column {
-        width: columns($i, true);
+@each $gridsize in $hybrid-grid-sizes {
+  // Generate Hybrid Grid Column Classes
+  .#{number-as-word($gridsize)}.colgrid .row {
+    @for $i from 1 through $gridsize{
+      @if $i == 1 {
+        .one.column {
+          width: columns($i, $gridsize);
+        }
+        .one.columns {
+          width: columns($i, $gridsize);
+        }
       }
-    }
-    .#{number-as-word($i)}.columns{
-      width: columns($i, true);
-    }
-  }
-}
-
-/* Hybrid Push Classes */
-
-// Generate Hybrid Push Classes
-.#{number-as-word($hybrid)}.colgrid .row {
-  @for $i from 1 through $hybrid - 1{
-    .push_#{number-as-word($i)} {
-      margin-left: push_x($i, false, true);
-        &:first-child {
-        margin-left: push_x($i, true, true);
+      .#{number-as-word($i)}.columns{
+        width: columns($i, $gridsize);
       }
     }
   }
-}
 
-/* Hybrid Centered Classes */
+  /* Hybrid Push Classes */
 
-// Generate Centered Classes
-.#{number-as-word($hybrid)}.colgrid .row {
-  @for $i from 1 through $hybrid - 1 {
-    .#{number-as-word($i)}.centered {
-      margin-left: centered($i, true);
+  // Generate Hybrid Push Classes
+  .#{number-as-word($gridsize)}.colgrid .row {
+    @for $i from 1 through $gridsize - 1{
+      .push_#{number-as-word($i)} {
+        margin-left: push_x($i, $gridsize, false);
+          &:first-child {
+          margin-left: push_x($i, $gridsize, true);
+        }
+      }
+    }
+  }
+
+  /* Hybrid Centered Classes */
+
+  // Generate Centered Classes
+  .#{number-as-word($gridsize)}.colgrid .row {
+    @for $i from 1 through $gridsize - 1 {
+      .#{number-as-word($i)}.centered {
+        margin-left: centered($i, $gridsize);
+      }
     }
   }
 }

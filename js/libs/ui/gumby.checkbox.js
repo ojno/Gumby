@@ -88,6 +88,7 @@
 		events: ['onCheck', 'onUncheck', 'onChange', 'check', 'uncheck'],
 		init: function() {
 			Gumby.initialize('checkboxes');
+			console.log("in checkbox init");
 		}
 	});
 }();

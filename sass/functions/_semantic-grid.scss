@@ -107,29 +107,15 @@
   }
 }
 
-@mixin push($columns, $hybrid-grid: false) {
-  @if $hybrid-grid == hybrid {
-    margin-left: push_x($columns, false, true);
-    &:first-child {
-      margin-left: push_x($columns, true, true);
-    }
-    @include respond(all-phones) {
-      margin-left: 0;
-      &:first-child {
-        margin-left: 0;
-      }
-    }
+@mixin push($columns, $n_cols) {
+  margin-left: push_x($columns, $n_cols, false);
+  &:first-child {
+    margin-left: push_x($columns, $n_cols, true);
   }
-  @else {
-    margin-left: push_x($columns);
+  @include respond(all-phones) {
+    margin-left: 0;
     &:first-child {
-      margin-left: push_x($columns, true);
-    }
-    @include respond(all-phones) {
       margin-left: 0;
-      &:first-child {
-        margin-left: 0;
-      }
     }
   }
 }
